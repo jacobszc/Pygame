@@ -1,6 +1,6 @@
 
 import pygame
-from sprite_init import Player
+from Player import Player
 from pygame.locals import *
 from pygame import mixer
 

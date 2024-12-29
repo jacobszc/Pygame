@@ -1,7 +1,7 @@
 import pygame
 
 
-class Player():
+class Player(pygame.sprite.Sprite):
     FRAME_WIDTH = 64
     FRAME_HEIGHT = 64
     NUM_FRAMES = 6
