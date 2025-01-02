@@ -10,15 +10,15 @@ class Player(pygame.sprite.Sprite):
     CURRENT_TIME = None
     
 
-    def __init__(self, INIT_SPAWN, sprite_sheet, direction_moving="down"):
+    def __init__(self, INITAL_SPAWN_LOCATION, sprite_sheet, direction_moving="down"):
         super().__init__()
         self.sprite_sheet = sprite_sheet
         self.current_frame_index = 0
         self.direction_moving = direction_moving
         self.image = self.extract_frame(self.current_frame_index, 1)
         self.rect = self.image.get_rect()
-        self.rect.x = INIT_SPAWN[0]
-        self.rect.y = INIT_SPAWN[1]
+        self.rect.x = INITAL_SPAWN_LOCATION[0]
+        self.rect.y = INITAL_SPAWN_LOCATION[1]
       
 
     def extract_frame(self, xindex, yindex):
