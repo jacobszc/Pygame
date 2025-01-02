@@ -2,6 +2,11 @@ import pygame
 
 
 class Player(pygame.sprite.Sprite):
+    HP = 0
+    MANA = 0
+    
+    
+    
     FRAME_WIDTH = 64
     FRAME_HEIGHT = 64
     NUM_FRAMES = 6
@@ -19,7 +24,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = INITAL_SPAWN_LOCATION[0]
         self.rect.y = INITAL_SPAWN_LOCATION[1]
-      
+        #### jsut testers for save state, no actual paramters
+        self.HP = 10000
+        self.MANA = 5000
 
     def extract_frame(self, xindex, yindex):
         x = xindex * self.FRAME_WIDTH
