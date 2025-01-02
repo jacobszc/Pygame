@@ -17,7 +17,7 @@ PokeShop.printStock()
 PokeShop.buyItem(PokeShop.potion,10)
 PokeShop.printStock()
 
-SAVEFILE = SaveState(PokeShop, None)
+SAVEFILE = SaveState(PokeShop)
 
 SAVEFILE.print()
 

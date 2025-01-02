@@ -4,20 +4,23 @@ from Store import Store
 class SaveState():
 
 
-    CUR_PLAYER = None
+    
     CUR_STORE = Store()
     
-    def __init__(self, PLAYER, STORE ):
+    def __init__(self, STORE ):
         super().__init__()
      
+        self.CUR_STORE = STORE
+
+
+    def save(self, STORE):
+
         
-
-
-    def save(self, PLAYER, STORE):
-
-        self.CUR_PLAYER = PLAYER
         self.CUR_STORE = STORE
      
 
     def print(self):
         self.CUR_STORE.printStock()
+
+
+    
