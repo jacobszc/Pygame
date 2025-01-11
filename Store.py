@@ -1,7 +1,8 @@
+import pygame
 import enum
 from enum import Enum
 
-class Store():
+class Store(pygame.sprite.Sprite):
      #### enumeration for calls to buy
      pokeball = 1
      potion = 2
@@ -15,6 +16,7 @@ class Store():
      MAX_STOCK_GREATBALL = 50
      MAX_STOCK_REPEL = 25
      MAX_STOCK_SUPERREPEL = 10
+     STORE_IMG = "images/mart.jpg"
 
   #### validation flags $$$$$$$
 

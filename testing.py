@@ -11,14 +11,16 @@ from Player import Player
 
 
 
-PokeShop = Store()
-PokeShop.printStock()
 
-PokeShop.buyItem(PokeShop.potion,10)
-PokeShop.printStock()
 
-SAVEFILE = SaveState(PokeShop)
+# PokeShop = Store()
+# PokeShop.printStock()
 
-SAVEFILE.print()
+# PokeShop.buyItem(PokeShop.potion,10)
+# PokeShop.printStock()
+
+# SAVEFILE = SaveState(PokeShop)
+
+# SAVEFILE.print()
 
 
