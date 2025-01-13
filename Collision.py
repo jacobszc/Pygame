@@ -3,14 +3,24 @@ from Sprite import Sprite
 
 
 class Collision:
-    x1 = 0 
-    y1 = 0
-    x2 =0
-    y2 =0
-    width1 = 0
-    width2=0
-    height1 =0
-    height2=0
+    playerX = 0 
+    playerY = 0
+    shopX =0
+    shopY =0
+    
+    
+    playerXline = 0
+    playerYline = 0
+    
+    shopXline = 0
+    shopYline =0
+
+    playerXcoors = []
+    shopXcoors = []
+
+    
+    
+    
 
     horizontal_touch = False
     vertical_touch = False
@@ -25,43 +35,64 @@ class Collision:
 
 
     def isCollision(self,sprite1, sprite2):
-  ### top left pixel of first sprite
-     self.x1 = sprite1.rect.x
-     self.y1 = sprite1.rect.y  
-  
-  ## top left pixel of second sprite
-     self.x2 = sprite2.rect.x
-     self.y2 = sprite2.rect.y 
+       
+          ## check for corners
 
-     self.height1 = sprite1.FRAME_HEIGHT
-     self.width1 = sprite1.FRAME_WIDTH
 
-     self.height2 = sprite2.FRAME_HEIGHT
-     self.width2 = sprite2.FRAME_WIDTH
+          ## check for lines
+       
+       self.playerX = sprite1.rect.x
+       self.playerY = sprite1.rect.y
 
-     self.printCoor()
-
-     
-     if (self.x1 + self.width1 == self.x2 or self.x2 + self.width2 == self.x1) and (self.y1 < self.y2 + self.height2 and self.y2 < self.y1 + self.height1):
-        self.horizontal_touch = True
+       self.shopX = sprite2.rect.x
+       self.shopY = sprite2.rect.y
+       
+       
+      
+ ############# left corner X axis check #########################
+       if(self.shopX <= self.playerX <= self.shopX + 64):
+         
+          print("your left corner is toucing the shops x line")
     
-    
-    # Check if vertically adjacent
-     if (self.y1 + self.height1 == self.y2 or self.y2 + self.height2 == self.y1) and (self.x1 < self.x2 +self.width2 and self.x2 < self.x1 + self.width1):
-         self.vertical_touch = True
-    
-    
-    # Check if corners touch
-     if (self.x1 + self.width1 == self.x2 and self.y1 + self.height1 == self.y2) or (self.x2 + self.width2 == self.x1 and self.y2 + self.height2 == self.y1):
-         self.corner_touch = True
-    
-     if(self.horizontal_touch == True) or (self.vertical_touch == True) or (self.corner_touch== True):
-        print("COLLISION!")
+  ########## right corner x axis check
+       if(self.shopX <= self.playerX + 64 <= self.shopX + 64):
+         
+          print("your right corner is toucing the shops x line")
         
-    
-     
-     return self.horizontal_touch or self.vertical_touch or self.corner_touch
+       if(self.shopY <= self.playerY <= self.shopY + 64):
+         
+          print("your left corner is toucing the shops Y line")
 
+       if(self.shopY <= self.playerY + 64 <= self.shopY + 64):
+          
+          print("your left corner is toucing the shops Y line")
+       
+  ###### left corner y axis check 
+       
+       
+       
+       
+
+       if(self.playerX + self.playerY == self.shopX + self.shopY):  ### must look at this again. this works for most cases but could be buggy
+         print("you are perfectly overlapped")
+
+       print("Player :", sprite1.rect.x, " ", sprite1.rect.y)
+       print("Shop", sprite2.rect.x, " ", sprite2.rect.y)
+      
+       
+          #####################
+          #####################
+          #####################
+          ##########$$XX#######
+          ##########$$XX#######
+          #####################
+          #####################
+
+       
+
+     
+
+     
      
      
 

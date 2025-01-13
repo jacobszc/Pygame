@@ -47,7 +47,13 @@ class Sprite():
         return self.CUR_SPRITE_SHEET.subsurface(pygame.Rect(x, y, self.FRAME_WIDTH, self.FRAME_HEIGHT))
 
     
-            
+    def move(self, dx, dy):
+        self.rect.x += dx
+        self.rect.y += dy    
+    
+    
+    
+    ## all below functions are purely for extracting sprites from a sheet. they have nothing to do with movement or updating x y values
     
     def updateFrameIndex(self):
      self.CURRENT_TIME = pygame.time.get_ticks()
@@ -57,9 +63,7 @@ class Sprite():
       self.current_frame_index = (self.current_frame_index + 1) % self.NUM_FRAMES
       self.LAST_UPDATE_TIME = self.CURRENT_TIME
       
-    def move(self, dx, dy):
-        self.rect.x += dx
-        self.rect.y += dy
+    
        
 
     

@@ -14,7 +14,7 @@ from Music import Music
 
 SCREEN_SIZE = 800 , 800 
 BACKGROUND_SIZE = SCREEN_SIZE
-INITIAL_SPAWN_LOC = 200 , 200
+INITIAL_SPAWN_LOC = 400 , 400
 STORE_LOC = 400, 400
 SAMPLE_NAME = "Jake"
 pygame.init()
@@ -27,7 +27,7 @@ last_collision_check_time = 0  # Stores the last time the collision was checked
 collision_check_interval = 2000  # 2 seconds in milliseconds
 
 
-sprite_sheet = pygame.image.load("images/SaraFullSheet.png").convert_alpha()
+sprite_sheet = pygame.image.load("images/red_rectangle.png").convert_alpha()
 background = pygame.image.load("images/tiles-map.png")
 background = pygame.transform.scale(background, BACKGROUND_SIZE)
 
@@ -36,7 +36,13 @@ title_screen=pygame.image.load("images/Title-screen.png")
 title_screen = pygame.transform.scale(title_screen, BACKGROUND_SIZE)
 
 
-shopImg=pygame.image.load("images/mart.png").convert_alpha()
+greenRectange = pygame.image.load("images/green_rectangle.png")
+greenRectange = pygame.transform.scale(greenRectange, (64,64) )
+redRectange = pygame.image.load("images/red_rectangle.png")
+redRectange = pygame.transform.scale(redRectange, (64,64) )
+
+shopImg=pygame.image.load("images/green_rectangle.png").convert_alpha()
+shopImg = pygame.transform.scale(shopImg, (64,64) )
 
 
 
@@ -45,6 +51,15 @@ player = Player(SAMPLE_NAME)
 shop = Store()
 playerSprite = Sprite(player, INITIAL_SPAWN_LOC, sprite_sheet)
 ShopSprite = Sprite(shop, STORE_LOC, shopImg)
+
+
+Red = Player(SAMPLE_NAME)
+RED = Sprite(Red,INITIAL_SPAWN_LOC, redRectange,)
+
+green = Player(SAMPLE_NAME)
+GREEN = Sprite(green,STORE_LOC, redRectange,)
+
+
 
 collisonChecker = Collision()
 
@@ -117,9 +132,15 @@ while running:
     screen.blit(playerSprite.image, (playerSprite.rect.x, playerSprite.rect.y))
     screen.blit(shopImg, STORE_LOC)
     
+    
+    ##screen.blit(shopImg, STORE_LOC)
+    
      
     
     pygame.display.flip()
     clock.tick(60)
 
 pygame.quit()
+
+
+
