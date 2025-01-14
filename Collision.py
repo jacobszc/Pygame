@@ -52,20 +52,20 @@ class Collision:
  ############# left corner X axis check #########################
        if(self.shopX <= self.playerX <= self.shopX + 64):
          
-          print("your left corner is toucing the shops x line")
+          print("your left corner is toucing the shops x line on the top")
     
   ########## right corner x axis check
        if(self.shopX <= self.playerX + 64 <= self.shopX + 64):
          
-          print("your right corner is toucing the shops x line")
+          print("your right corner is toucing the shops x line on the top")
         
        if(self.shopY <= self.playerY <= self.shopY + 64):
          
-          print("your left corner is toucing the shops Y line")
+          print("your left corner is toucing the shops Y line on the left")
 
-       if(self.shopY <= self.playerY + 64 <= self.shopY + 64):
+       if(self.shopY >= self.playerY + 64 <= self.shopY + 64):
           
-          print("your left corner is toucing the shops Y line")
+          print("your left corner is toucing the shops Y line on the left")
        
   ###### left corner y axis check 
        
