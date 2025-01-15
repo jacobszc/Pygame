@@ -21,3 +21,21 @@ last_collision_check_time = 0  # Stores the last time the collision was checked
 collision_check_interval = 2000  # 2 seconds in milliseconds
 
 
+
+
+def start_the_game():
+
+    print("game started")
+    
+
+
+def set_difficulty(DIFFICULTY):
+    
+    if(DIFFICULTY == 1):
+        DIFFICULTY[0] ='Hard'
+
+    if(DIFFICULTY == 2):
+        DIFFICULTY[0] ='Easy'   
+
+    
+

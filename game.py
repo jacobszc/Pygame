@@ -13,6 +13,7 @@ from pygame import mixer
 from Music import Music
 import config
 from config import *
+import pygame_menu
 
 
 
@@ -24,10 +25,17 @@ screen = pygame.display.set_mode((SCREEN_SIZE), pygame.RESIZABLE)
 pygame.display.set_caption("GAME")
 clock = pygame.time.Clock()
 
-##### TITLE SCREEN VARIABLES ########
+##### TITLE TITLE_MENU VARIABLES ########
 
-TITLE_SCREEN=pygame.image.load("images/Title-screen.png")
-TITLE_SCREEN = pygame.transform.scale(TITLE_SCREEN, BACKGROUND_SIZE)
+DIFFICULTY = ['Easy']
+
+TITLE_MENU = pygame_menu.Menu('Welcome', 800,800,
+                       theme=pygame_menu.themes.THEME_GREEN)
+
+TITLE_MENU.add.text_input('Name :', default='John Doe')
+TITLE_MENU.add.selector('Difficulty :', [('Hard', 1), ('Easy', 2)], onchange=set_difficulty(DIFFICULTY))
+TITLE_MENU.add.button('Play',  start_the_game())
+TITLE_MENU.add.button('Quit', pygame_menu.events.EXIT)
 PLAY_TITLE_MUSIC = Music("music_tracks/title-screen-music.mp3")
 
 ### CREATE A SHOP INSTANCE##########################################
@@ -52,21 +60,30 @@ collisonChecker = Collision()
 
 ##################### TITLE SCREEN LOOP START ##############################################
 
-TITLE_SCREEN_running = True
-while TITLE_SCREEN_running:
- screen.blit(TITLE_SCREEN, (0,0))
- pygame.display.flip()
- for event in pygame.event.get():
+TITLE_SCREEN_RUNNING = True
+while TITLE_SCREEN_RUNNING:
+ 
+    if TITLE_MENU.is_enabled():
+                TITLE_MENU.update(pygame.event.get())
+                TITLE_MENU.draw(screen)
+
+                pygame.display.flip()
+    
+    
+    for event in pygame.event.get():
         if event.type == pygame.VIDEORESIZE:
             width, height = event.size
             screen = pygame.display.set_mode((width, height), pygame.RESIZABLE)
-            TITLE_SCREEN = pygame.transform.scale(TITLE_SCREEN, (width, height))
+            
             
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:  # Only allow Enter to exit
-                TITLE_SCREEN_running = False
+                TITLE_SCREEN_RUNNING = False
+
+
+            
     
-                screen.blit(TITLE_SCREEN, (0,0))
+               ## screen.blit(TITLE_SCREEN, (0,0))
 
 ##################### TITLE SCREEN LOOP END ##############################################
 
